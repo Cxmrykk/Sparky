@@ -1,10 +1,11 @@
 ### Building
+Minimum requirements are `npm` and `git` installed on the user's system
 ```sh
-git clone https://github.com/Cxmrykk/Sparky.git # Clone the repository contents
+git clone https://github.com/Cxmrykk/Sparky.git
 cd Sparky
-npm install # Install dependencies
-npx rescript # Compile rescript to JS
-npx react-native start # Start Metro
+npm install # install dependencies
+npx rescript # compile ReScript to JS
+npx react-native start # start testing environment
 ```
 
 ### Concepts
