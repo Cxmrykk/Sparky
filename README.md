@@ -18,6 +18,10 @@ npx rescript
 - Subscription-based
 - Cached content (Refresh will fetch URLs only)
 
+### Todo
+- Proxitok user feed video link extraction "@user/video/" (Video URL, poster URL)
+- Video extraction (Tags, Comments, Video)
+
 ### UI Milestones
 | Component | Role | Status |
 |---|---|---|
