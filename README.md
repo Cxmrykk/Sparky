@@ -17,3 +17,12 @@ npx rescript
 #### Feeds
 - Subscription-based
 - Cached content (Refresh will fetch URLs only)
+
+### UI Milestones
+| Component | Role | Status |
+|---|---|---|
+| Video Feed | Main Screen | Not Started |
+| Following | Overlay Screen | Not Started |
+| Settings | Overlay Screen | Not Started |
+| Comments | Overlay | Not Started |
+| Share | Overlay | Not Started |
