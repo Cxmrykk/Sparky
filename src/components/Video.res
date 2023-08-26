@@ -8,4 +8,8 @@ external make: (
     ~style: 'a=?,
     ~controls: bool=?,
     ~resizeMode: string=?,
+    ~repeat: bool=?,
+    ~poster: string=?,
+    ~fullscreen: bool=?,
+    ~paused: bool=?,
 ) => React.element = "default"
