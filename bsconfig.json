@@ -12,5 +12,5 @@
       "subdirs": true
     }
   ],
-  "bs-dependencies": ["@rescript/react", "rescript-react-native"]
+  "bs-dependencies": ["@rescript/react", "rescript-react-native", "@rescript-react-native/async-storage"]
 }
