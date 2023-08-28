@@ -19,7 +19,7 @@ npx rescript
 - Cached content (Refresh will fetch URLs only)
 
 ### Todo
-- Local storage (Users, History, Settings)
+- ✅ Local storage (Users, History, Settings)
 - Proxitok user feed video link extraction "@user/video/" (Video URL, poster URL)
 - Video extraction (Tags, Comments, Video)
 
