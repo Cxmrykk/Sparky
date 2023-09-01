@@ -35,13 +35,28 @@ module Followers  = {
     let write = async (followers: array<follower>) => {
         let namelist = []
         followers |> Array.iter(((name, _)) => {
-            let _ = namelist -> Js.Array2.push(name)
+            let _ = namelist |> Js.Array.push(name)
         })
         await AsyncStorage.setItem("@storage/followers", stringify(namelist))
     }
 
     let read = async () => {
         parse((await AsyncStorage.getItem("@storage/followers"))
+            -> Js.Null.toOption
+            |> Js.Option.getWithDefault("[]"))
+    }
+}
+
+module Saved = {
+    @scope("JSON") external parse: string => array<string> = "parse"
+    @scope("JSON") external stringify: array<string> => string = "stringify"
+
+    let write = async (saved: array<string>) => {
+        await AsyncStorage.setItem("@storage/saved", stringify(saved))
+    }
+
+    let read = async () => {
+        parse((await AsyncStorage.getItem("@storage/saved"))
             -> Js.Null.toOption
             |> Js.Option.getWithDefault("[]"))
     }
