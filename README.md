@@ -20,7 +20,7 @@ npx rescript
 
 ### Todo
 - ✅ Local storage (Users, History, Settings)
-- Proxitok user feed video link extraction "@user/video/" (Video URL, poster URL)
+- ✅ Proxitok user feed video link extraction "@user/video/" (Video URL, poster URL)
 - Video extraction (Tags, Comments, Video)
 
 ### UI Milestones
