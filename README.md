@@ -21,7 +21,7 @@ npx rescript
 ### Todo
 - ✅ Local storage (Users, History, Settings)
 - ✅ Proxitok user feed video link extraction "@user/video/" (Video URL, poster URL)
-- Video extraction (Tags, Comments, Video)
+- Video Content (Comments, Tags, Profile)
 
 ### UI Milestones
 | Component | Role | Status |
@@ -31,3 +31,12 @@ npx rescript
 | Settings | Overlay Screen | Not Started |
 | Comments | Overlay | Not Started |
 | Share | Overlay | Not Started |
+
+### Video Feed
+- Works in "pages" (once the end is reached, a new page will load)
+- Only displays content not contained in history log
+- Media controls:
+  - Tap to pause
+  - Long press to save
+  - Swipe left/right to seek
+  - Swipe up/down to scroll
