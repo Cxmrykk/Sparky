@@ -35,10 +35,10 @@ module Scraper = {
         } |> Array.iter(url => switch (
             match
                 -> Js.Re.fromString
-                -> Js.String.match_(url -> Belt.Option.getUnsafe) // allowed because 'g' flag used
+                -> Js.String.match_(url -> Belt.Option.getUnsafe) // allowed because 'g' flag used (no optional parenthesis)
         ) {
             | Some(arr) => {
-                let  _ = matches |> Js.Array.push(arr[1] -> Belt.Option.getUnsafe) // allowed because parenthesis cannot be empty
+                let  _ = matches |> Js.Array.push(arr[1] -> Belt.Option.getUnsafe) // allowed because no optional parenthesis
             }
             | None => ()
         })
@@ -47,7 +47,8 @@ module Scraper = {
     }
 }
 
-let getUserFeed = async (~cursor="0", instance, user) => {
+let getUserFeed = async (user, cursor) => {
+    let { instance } = await Storage.Settings.read()
     let response = await fetch(`https://${instance}/${user}?cursor=${cursor}`, Response.headers)
 
     // verify instance response was ok

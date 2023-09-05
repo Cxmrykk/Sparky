@@ -1,16 +1,14 @@
 module Follower = {
-    type historyEntry = {
-        path: string,
-        date: float,
-    }
-
-    type history = array<historyEntry>
-
+    type history = array<string>
     type follower = (string, history)
+
+    module StringCmp = Belt.Id.MakeComparable({
+        type t = string;
+        let cmp = Pervasives.compare;
+    })
 
     @scope("JSON") external parse: string => history = "parse"
     @scope("JSON") external stringify: history => string = "stringify"
-
     let write = async ((name, history): follower) => {
         await AsyncStorage.setItem(`@storage/follower/${name}`, stringify(history))
     }
@@ -19,6 +17,7 @@ module Follower = {
         parse((await AsyncStorage.getItem(`@storage/follower/${name}`))
             -> Js.Null.toOption
             |> Js.Option.getWithDefault("[]"))
+            -> Belt.Set.fromArray(~id=module(StringCmp))
     }
 }
 
