@@ -1,4 +1,4 @@
-external fetch: (string, Js.Json.t) => promise<unknown> = "fetch"
+external fetch: (. string, Js.Json.t) => promise<unknown> = "fetch"
 
 module Response = {
     let ok: unknown => bool = %raw("(response) => response.ok")
@@ -49,7 +49,7 @@ module Scraper = {
 
 let getUserFeed = async (user, cursor) => {
     let { instance } = await Storage.Settings.read()
-    let response = await fetch(`https://${instance}/${user}?cursor=${cursor}`, Response.headers)
+    let response = await fetch(. `https://${instance}/${user}?cursor=${cursor}`, Response.headers)
 
     // verify instance response was ok
     if !Response.ok(response) {

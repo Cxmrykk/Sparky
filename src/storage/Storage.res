@@ -10,11 +10,11 @@ module Follower = {
     @scope("JSON") external parse: string => history = "parse"
     @scope("JSON") external stringify: history => string = "stringify"
     let write = async ((name, history): follower) => {
-        await AsyncStorage.setItem(`@storage/follower/${name}`, stringify(history))
+        await AsyncStorage.setItem(. `@storage/follower/${name}`, stringify(history))
     }
 
     let read = async (name: string) => {
-        parse((await AsyncStorage.getItem(`@storage/follower/${name}`))
+        parse((await AsyncStorage.getItem(. `@storage/follower/${name}`))
             -> Js.Null.toOption
             |> Js.Option.getWithDefault("[]"))
             -> Belt.Set.fromArray(~id=module(StringCmp))
@@ -22,25 +22,19 @@ module Follower = {
 }
 
 module Followers  = {
-    type follower = Follower.follower
-
-    type t = {
-        followers: array<follower>
-    }
-
     @scope("JSON") external parse: string => array<string> = "parse"
     @scope("JSON") external stringify: array<string> => string = "stringify"
 
-    let write = async (followers: array<follower>) => {
+    let write = async (followers: array<string>) => {
         let namelist = []
-        followers |> Array.iter(((name, _)) => {
-            let _ = namelist |> Js.Array.push(name)
+        followers |> Array.iter(user => {
+            let _ = namelist |> Js.Array.push(user)
         })
-        await AsyncStorage.setItem("@storage/followers", stringify(namelist))
+        await AsyncStorage.setItem(. "@storage/followers", stringify(namelist))
     }
 
     let read = async () => {
-        parse((await AsyncStorage.getItem("@storage/followers"))
+        parse((await AsyncStorage.getItem(. "@storage/followers"))
             -> Js.Null.toOption
             |> Js.Option.getWithDefault("[]"))
     }
@@ -51,11 +45,11 @@ module Saved = {
     @scope("JSON") external stringify: array<string> => string = "stringify"
 
     let write = async (saved: array<string>) => {
-        await AsyncStorage.setItem("@storage/saved", stringify(saved))
+        await AsyncStorage.setItem(. "@storage/saved", stringify(saved))
     }
 
     let read = async () => {
-        parse((await AsyncStorage.getItem("@storage/saved"))
+        parse((await AsyncStorage.getItem(. "@storage/saved"))
             -> Js.Null.toOption
             |> Js.Option.getWithDefault("[]"))
     }
@@ -67,19 +61,19 @@ module Settings = {
     }
 
     let defaults = {
-        instance: "https://proxitok.pussthecat.org/"
+        instance: "proxitok.pussthecat.org"
     }
 
     @scope("JSON") external parse: string => t = "parse"
     @scope("JSON") external stringify: t => string = "stringify"
 
     let read = async () => {
-        instance: (await AsyncStorage.getItem("@storage/settings/instance"))
+        instance: (await AsyncStorage.getItem(. "@storage/settings/instance"))
             -> Js.Null.toOption
             |> Js.Option.getWithDefault(defaults.instance),
     }
 
     let write = async (settings: t) => {
-        await AsyncStorage.setItem("@storage/settings/instance", settings.instance)
+        await AsyncStorage.setItem(. "@storage/settings/instance", settings.instance)
     }
 }
