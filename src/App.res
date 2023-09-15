@@ -1,8 +1,9 @@
-open ReactNative
-
 @react.component
 let app = () => {
-  <Text>
-    {"Hello, world!" -> React.string}
-  </Text>
+  <PaperProvider>
+    <Appbar.Header>
+      <Appbar.Content title="Hello!" />
+      <Appbar.Action icon="calendar" onPress={() => Js.log("Hello!")}/>
+    </Appbar.Header>
+  </PaperProvider>
 }
