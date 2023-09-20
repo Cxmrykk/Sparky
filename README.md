@@ -13,15 +13,9 @@ npx rescript
 ```
 (This is done automatically in Visual Studio Code using the [ReScript](https://github.com/rescript-lang/rescript-vscode) extension)
 
-### Concepts
-#### Feeds
-- Subscription-based
-- Cached content (Refresh will fetch URLs only)
-
-### Todo
-- ✅ Local storage (Users, History, Settings)
-- ✅ Proxitok user feed video link extraction "@user/video/" (Video URL, poster URL)
-- Video Content (Comments, Tags, Profile)
+### Status
+- Currently waiting on `Cxmrykk/TikTok-server` to be complete (Web server that serves JSON content from python scraper)
+- Will rely on [pablouser1/ProxiTok](https://github.com/pablouser1/ProxiTok) as a workaround for downloading videos (See [davidteather/TikTok-Api](https://github.com/davidteather/TikTok-Api) issues: [1040](https://github.com/davidteather/TikTok-Api/issues/1040), [984](https://github.com/davidteather/TikTok-Api/issues/984))
 
 ### UI Milestones
 | Component | Role | Status |
