@@ -1,3 +1,6 @@
+# Status
+- Development hiatus - waiting for [davidteather/TikTok-Api](https://github.com/davidteather/TikTok-Api) to implement support for new TikTok API
+
 ### Building
 Minimum requirements are `npm` and `git` installed on the user's system
 ```sh
