@@ -1,5 +1,6 @@
 # Status
-- Development hiatus - waiting for [davidteather/TikTok-Api](https://github.com/davidteather/TikTok-Api) to implement support for new TikTok API
+- ~~Development hiatus - waiting for [davidteather/TikTok-Api](https://github.com/davidteather/TikTok-Api) to implement support for new TikTok API~~
+- Taking too long, will use [pablouser1/TikScraperPHP](https://github.com/pablouser1/TikScraperPHP) for continued support (see [Cxmrykk/TikTok-Server](https://github.com/Cxmrykk/TikTok-Server))
 
 ### Building
 Minimum requirements are `npm` and `git` installed on the user's system
